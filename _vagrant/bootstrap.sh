@@ -9,11 +9,14 @@ debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again pa
 apt-get install -y mysql-server
 
 # install php
-apt-get install -y php5-fpm php5-mysql
+apt-get install -y php5-common php5-cli php5-fpm php5-mysql
 
 # configure php
 rm /etc/php5/fpm/pool.d/www.conf
 ln -s /vagrant/_vagrant/etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/www.conf
+
+rm /etc/php5/fpm/php.ini
+ln -s /vagrant/_vagrant/etc/php5/fpm/php.ini /etc/php5/fpm/php.ini
 
 # restart php
 service php5-fpm restart
@@ -32,8 +35,8 @@ ln -s /vagrant/_vagrant/etc/nginx/sites-available/default /etc/nginx/sites-avail
 rm -rf /usr/share/nginx/html
 ln -s /vagrant/public /usr/share/nginx/html
 
-# start nginx
-service nginx start
+# restart nginx
+service nginx restart
 
 # utilities
 apt-get install -y vim
