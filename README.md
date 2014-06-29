@@ -10,4 +10,4 @@ A vagrant boilerplate with ubuntu 14.04, nginx, php5-fpm, mysql server
  - Run: `vagrant up`.
 
 ####Configuring Services
-I decided to keep a copy of any customized configuration file (ex: php.ini) in the _vagrant directory, and as bootstrap.sh is running, I simply deleted the stock copy on the system and symlinked the customized copy that lives in the _vagrant directory. 
+I decided to keep a copy of any customized configuration file (ex: php.ini) in the _vagrant directory. As bootstrap.sh is running, I simply deleted the stock copy on the system and symlinked the customized copy that lives in the _vagrant directory. 
