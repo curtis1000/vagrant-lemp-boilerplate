@@ -40,7 +40,7 @@ service nginx restart
 
 # utilities
 apt-get install -y vim
-
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin & mv /usr/local/bin/composer.phar /usr/local/bin/composer
 
 
 
