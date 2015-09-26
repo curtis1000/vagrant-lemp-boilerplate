@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# name input arguments
+mysql_root_password=$1
+
 # update package list
 apt-get update
 
 # install and start mysql server
-debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password mysqlpassword'
-debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password mysqlpassword'
+debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password password $mysql_root_password"
+debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password_again password $mysql_root_password"
 apt-get install -y mysql-server
 
 # install php
